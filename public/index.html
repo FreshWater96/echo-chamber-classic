@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d0e"><meta name="description" content="Echo Chamber — a side-on 2.5D horror survival game. Use sound to find your way through the abandoned Blackwell facility.">
+<title>Echo Chamber — The Blackwell Incident</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="game">
+ <div id="viewport" aria-label="Three dimensional abandoned laboratory game"></div>
+ <div id="film" aria-hidden="true"></div><div id="transition" aria-hidden="true"></div>
+ <header id="hud" class="hidden">
+  <div class="vitals"><div class="hud-label">THE DRIFTER</div><div class="life-line"><i></i></div><div class="stamina-line"><i id="stamina"></i></div><div id="state-label">Keep your footsteps quiet</div></div>
+  <div class="location"><span id="chapter">SUBLEVEL IV</span><h1 id="room-name">Intake Hall</h1><p id="room-subtitle">Blackwell Research</p></div>
+  <div class="mission"><span class="hud-label">ACCESS AUTHORIZATION</span><div id="cards"><i data-key="cryo">I</i><i data-key="archive">II</i><i data-key="containment">III</i></div><span id="card-status">Find the three access cards</span></div>
+ </header>
+ <div id="threat" class="hidden" role="status"><i></i><span>It heard you</span></div>
+ <section id="bottom-hud" class="hidden">
+  <div class="tools">
+   <button id="pulse-btn" class="tool selected" title="Sonar pulse — Space"><span class="tool-symbol">◉</span><b id="pulse-ready">SONAR</b><kbd>SPACE</kbd></button>
+   <button id="throw-btn" class="tool" title="Throw specimen vial — F"><span class="tool-symbol">♧</span><b id="bottle-count">3 VIALS</b><kbd>F</kbd></button>
+   <button id="radio-btn" class="tool" title="Remote radio — R"><span class="tool-symbol">⌁</span><b id="radio-count">2 CHARGES</b><kbd>R</kbd></button>
+  </div>
+  <div class="resonance"><span>ACOUSTIC RESONANCE</span><div class="resonance-track"><i id="resonance-fill"></i></div><small id="resonance-caption">THE FACILITY IS LISTENING</small></div>
+  <div class="utility"><button id="map-btn">TAB <span>FACILITY MAP</span></button><button id="pause-btn">ESC <span>PAUSE</span></button></div>
+ </section>
+ <div id="interaction" class="hidden"><kbd>E</kbd><span>Open door</span></div>
+ <div id="toast" role="status"></div>
+ <div id="room-flash"><span>SUBLEVEL IV</span><h2>Intake Hall</h2><i></i></div>
+ <section id="title-screen" class="screen">
+  <div class="title-content"><span class="eyebrow">THE BLACKWELL INCIDENT</span><h1>Echo<br><em>Chamber</em></h1><div class="title-rule"></div><p>The dark has a shape.<br>It is waiting for you to make a sound.</p>
+   <button id="start-btn" class="menu-button" disabled><span>Enter the facility</span><b>→</b></button>
+   <div class="title-meta"><span>THREE ACCESS CARDS</span><i></i><span>ONE WAY OUT</span></div>
+  </div>
+  <div class="title-bottom"><span id="loading-status">Preparing the facility…</span><button id="sound-btn">SOUND ON</button><span>HEADPHONES RECOMMENDED</span></div>
+ </section>
+ <section id="pause-screen" class="screen menu-screen hidden">
+  <div class="menu-card"><span class="eyebrow">SIGNAL INTERRUPTED</span><h2>Hold your breath.</h2><p>WASD / arrows to move · Ctrl or C to crouch<br>Shift to run · Space to scan · E to interact<br>F to throw a vial · R to activate the remote radio</p><button id="resume-btn" class="menu-button"><span>Continue</span><b>→</b></button><button id="quality-btn" class="text-button">GRAPHICS: HIGH</button><button id="restart-pause-btn" class="text-button">RESTART RUN</button></div>
+ </section>
+ <section id="map-screen" class="screen menu-screen hidden">
+  <div class="map-card"><span class="eyebrow">BLACKWELL RESEARCH · SUBLEVEL IV</span><h2>The Facility</h2><p>Three access cards release the extraction airlock.</p><div id="map-rooms"></div><button id="close-map" class="text-button">TAB / CLOSE MAP</button></div>
+ </section>
+ <section id="end-screen" class="screen menu-screen hidden">
+  <div class="menu-card"><span class="eyebrow" id="end-eyebrow">SIGNAL LOST</span><h2 id="end-title">The silence returns.</h2><p id="end-copy">The Listener reached the source.</p><div class="end-stats"><span><b id="end-time">00:00</b>TIME INSIDE</span><span><b id="end-cards">0 / 3</b>ACCESS CARDS</span><span><b id="end-pulses">0</b>TRANSMISSIONS</span></div><button id="restart-btn" class="menu-button"><span>Enter again</span><b>→</b></button></div>
+ </section>
+ <div id="mobile-controls" class="hidden"><div class="move-pad"><button data-move="up">↑</button><button data-move="left">←</button><button data-move="down">↓</button><button data-move="right">→</button></div><button id="touch-interact">E<br><small>INTERACT</small></button></div>
+ <div id="help-line">A / D MOVE &nbsp; · &nbsp; W / S DEPTH &nbsp; · &nbsp; CTRL CROUCH &nbsp; · &nbsp; E INTERACT</div>
+</main>
+<script type="module" src="./game.js"></script>
+</body>
+</html>
